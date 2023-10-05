@@ -1,0 +1,27 @@
+.form-group{
+    margin:15px;
+}
+
+#Banner {
+    background-color: rgb(167, 133, 103);
+    color: rgba(43, 67, 147, 0.979);
+    text-align: center;
+    border-style:double;
+    border-width: 10px;
+}
+
+.userBox {
+    border-style: groove;
+    border-radius: 5px;
+    border-width: 10px;
+    border-color: rgb(57, 88, 174);
+    margin: 25px;
+    color: rgb(60, 104, 180);
+   background-color: antiquewhite;
+}
+
+.btn{
+    background-color: rgb(72, 74, 177);
+    color: rgb(241, 209, 198);
+   font-size: 15px;
+}
