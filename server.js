@@ -3,7 +3,7 @@
 const express = require("express");
 const path = require("path")
 const session = require("express-session");
-
+const exphbs = require('express-handlebars');
 
 // Requiring passport as we've configured it
 
@@ -67,7 +67,13 @@ app.use(passport.session());
 // Routes
 // will call all the routes here once we defined everything
 
-
+app.get('/', (req, res) => {
+  const data = {
+    title: 'BookWarm-Corner',
+    navItems: ['Home', 'Favorites', 'Cart']
+  };
+  res.render('home', data);
+});
 
 // Syncing our sequelize models and then starting our Express app
 sequelize.sync({ force: false }).then(() => {
