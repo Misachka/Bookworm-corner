@@ -9,6 +9,7 @@ passport.use(new LocalStrategy(
   {
     usernameField: "email"
   },
+
   function(email, password, done) {
     // When a user tries to sign in this code runs
     db.User.findOne({
@@ -44,6 +45,7 @@ passport.serializeUser(function(user, cb) {
 passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
+
 
 // Exporting our configured passport
 module.exports = passport;

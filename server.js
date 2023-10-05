@@ -32,8 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-// Set Handlebars.
-const exphbs = require("express-handlebars");
+
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
