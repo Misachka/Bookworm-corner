@@ -1,0 +1,15 @@
+<a href="/test/horror"><button>Horror</button></a>
+<a href="/test/comedy"><button>Comedy</button></a>
+<a href="/test/action"><button>Action</button></a>
+
+
+{{#each books as |book|}}
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="Card image cap">
+    <div class="card-body">
+        <h4>{{book.volumeInfo.title}}</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+    </div>
+</div>
+{{/each}}

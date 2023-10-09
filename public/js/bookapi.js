@@ -1,49 +1,38 @@
 const express = require('express');
+const axios = require("axios")
 
-const mysql = require('mysql2'); 
-//const db = connect to 
+const exphbs = require('express-handlebars');
 
-const app = expres();
+const app = express();
+const PORT = process.env.PORT || 3001;
 
-const db = mysql.createConnection(
-    {
-        host: 'localhost',
-        user: 'root',
-        password: process.env.DB_PASSWORD,
-        database: 'employees_db'
-    },
-    console.log(`Connected to employees_db`)
-);
-db.connect((err) => {
-    if (err) throw err;
-    
-});
+const hbs = exphbs.create();
 
-const getBooks = async (book) => {
-    const response = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${book}&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg`
-      
-    );
-    const data = await response.json();
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-    const title = data[title];
-    const author = data[authors];
-    const description = data[description];
-    const category = data[categories];
-    //const isbn = data
-    const cover = data[smallThumbnail];
+// Static directory
+app.use(express.static("public"));
 
-    return data;
-  };
-//set variables for title, author, description, genre, publisheddate, isbn
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 
-db.connect(db, (err, client, done) => {
-    done();
-    if(err) {
-        console.log(err);
-    }
-    client.query('INSERT INTO book_info(title, author, description, category, isbn) VALUES()')
-
+app.get("/", (req, res) => {
+    res.render("testhome")  ; 
 })
 
+app.get("/test/:genre", (req, res) => {
+    const url = "https://www.googleapis.com/books/v1/volumes?q=category:" + req.params.genre +"&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg"
+
+    axios.get(url)
+    .then(response => {
+
+        const books = response.data.items;
+
+        res.render("test", {
+            books
+        })
+    })
+})
+app.listen(PORT, () => console.log('Now listening'));
