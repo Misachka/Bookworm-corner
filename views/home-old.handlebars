@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="../public/css/styles.css">
+  <title>{{title}}</title>
+</head>
+<body>
+  {{#contentFor "header"}}
+    {{> header logo="Bookstore" navItems=navItems}}
+  {{/contentFor}}
+
+  {{#contentFor "footer"}}
+    {{> footer year=2023 company="BookWarm-Corner Bookstore"}}
+  {{/contentFor}}
+
+  {{#contentFor "body"}}
+    <main>
+      <section class="search-section">
+        <h1>Welcome to our Bookstore</h1>
+        <p>Find your favorite books and explore a wide range of genres in BookWarm Store.</p>
+        <div class="search-bar">
+          <input type="text" placeholder="Search books...">
+          <button>Search</button>
+        </div>
+      </section>
+
+      <section class="featured-books">
+        <h2>Featured Books</h2>
+        <div class="book-list">
+          {{> bookItem image="" title="Book Title" genre="Generes"}}
+          {{> bookItem image="" title="Book Title" genre="Drama"}}
+          {{> bookItem image="" title="Book Title" genre="Action"}}
+          {{> bookItem image="" title="Book Title" genre="History"}}
+          {{> bookItem image="" title="Book Title" genre="Fiction"}}
+          {{> bookItem image="" title="Book Title" genre="Non-Fiction"}}
+        </div>
+      </section>
+    </main>
+  {{/contentFor}}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+
+</body>
+</html>
