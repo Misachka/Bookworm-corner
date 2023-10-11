@@ -3,7 +3,7 @@
 const express = require("express");
 const path = require("path")
 const session = require("express-session");
-const exphbs = require('express-handlebars');
+
 
 // Requiring passport as we've configured it
 
@@ -32,6 +32,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+
+// Set Handlebars.
 
 
 app.engine('handlebars', hbs.engine);

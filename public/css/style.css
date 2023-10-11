@@ -1,3 +1,15 @@
+
+/* Sample CSS styles */
+body {
+    background-color: #fd3434;
+  }
+  
+  h1 {
+    color: #333;
+
+    background-color: #fd3434;
+  }
+ 
 body {
     background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg"); 
     background-size: cover; 
@@ -38,3 +50,4 @@ body {
     float: right;
     
 }
+
