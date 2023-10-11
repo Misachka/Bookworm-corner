@@ -19,10 +19,10 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-    res.render("testhome")  ; 
+    res.render('home')  ; 
 })
 
-app.get("/test/:genre", (req, res) => {
+app.get("/home/:genre", (req, res) => {
     const url = "https://www.googleapis.com/books/v1/volumes?q=category:" + req.params.genre +"&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg"
 
     axios.get(url)
@@ -30,7 +30,7 @@ app.get("/test/:genre", (req, res) => {
 
         const books = response.data.items;
 
-        res.render("test", {
+        res.render("home", {
             books
         })
     })

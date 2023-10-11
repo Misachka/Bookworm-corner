@@ -19,6 +19,9 @@ Book.init(
         },
         isbn: {
             type: DataTypes.STRING
+        },
+        thumbnail: {
+            type: DataTypes.STRING
         }
     },
     {
@@ -26,6 +29,7 @@ Book.init(
         sequelize,
         timestamps: false,
         underscored: true,
+        freezeTableName: true,
         modelName: 'book'
     }
 );

@@ -1,10 +1,11 @@
 // *** Dependencies
 
-const express = require("express");
-const path = require("path")
-const session = require("express-session");
+const express = require('express');
+const path = require('path')
+const session = require('express-session');
 const exphbs = require('express-handlebars');
 
+const hbs = exphbs.create();
 // Requiring passport as we've configured it
 
 const passport = require("./config/passport");
@@ -73,6 +74,8 @@ app.get('/', (req, res) => {
   };
   res.render('home', data);
 });
+
+
 
 // Syncing our sequelize models and then starting our Express app
 sequelize.sync({ force: false }).then(() => {
