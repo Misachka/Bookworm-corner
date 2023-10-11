@@ -1,3 +1,4 @@
+
 /* Sample CSS styles */
 body {
     background-color: #fd3434;
@@ -8,4 +9,45 @@ body {
 
     background-color: #fd3434;
   }
-  
+ 
+body {
+    background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg"); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+
+.form-group{
+    margin:15px;
+}
+
+#Banner {
+    background-color: rgb(10, 111, 139);
+    color: rgba(65, 22, 13, 0.979);
+    text-align: center;
+    border-style:double;
+    border-width: 10px;
+}
+
+.userBox {
+    border-style: groove;
+    border-radius: 5px;
+    border-width: 10px;
+    border-color: rgb(10, 111, 139);
+    margin: 25px;
+    color: rgb(207, 183, 168);
+   background-color: rgb(121, 46, 26);
+}
+
+.btn{
+    background-color: rgb(10, 111, 139);
+    color: rgb(241, 209, 198);
+   font-size: 15px;
+}
+
+.bookImg {
+    width: 260px;
+    height: 140px;
+    float: right;
+    
+}
+
