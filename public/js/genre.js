@@ -6,7 +6,7 @@ $("#genre-list button").on("click", function(event) {
   .then(res => res.json())
   .then(data => {
       console.log(data)
-      data.forEach((data) => {
+      data.forEach((res) => {
           
       const newDiv = $("<div>");
       newDiv.addClass("card");
@@ -15,7 +15,7 @@ $("#genre-list button").on("click", function(event) {
 
       newDiv.html(`
       <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
+      <img class="card-img-top" src="${data.volumeInfo.imageLinks.smallThumbnail}" alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
