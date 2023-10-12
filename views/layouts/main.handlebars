@@ -40,6 +40,12 @@
       </div>
     </nav>
   </header>
+ {{#if logged_in}}
+        <a href="/home-old"> Home</a> |
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+
   {{{body}}}
 
 
