@@ -1,53 +1,28 @@
 const express = require('express');
-const axios = require("axios")
-
-var compression = require('compression') 
-
+const axios = require("axios");
 const exphbs = require('express-handlebars');
-const path = require("path")
-const session = require("express-session");
-
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create();
 
-// compress all responses
+// Serve static files from the 'public' directory
+app.use('/public', express.static(__dirname + '/public'));
 
-app.use(compression())
-
-
-// Requiring our models for syncing
-
-const db = require("./models");
-
-
-// Sets up the Express app to handle data parsing
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-
-
-// Set Handlebars.
-
-
+// Set Handlebars
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// Static directory
-app.use(express.static("public"));
-
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-
 app.get("/", (req, res) => {
-    res.render('home')  ; 
-})
+    res.render('home');
+});
+
 app.get("/:genre", (req, res) => {
+    
+
+
     const url = "https://www.googleapis.com/books/v1/volumes?q=category:" + req.params.genre +"&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg"
 
     axios.get(url)
@@ -58,15 +33,14 @@ app.get("/:genre", (req, res) => {
         res.json(books);
         console.log ('got book items');
     })
-})
+});
 
 app.get("/favorites", (req, res) => {
-    res.render('favorites')  ; 
-})
+    res.render('favorites');
+});
 
 app.get("/about", (req, res) => {
-    res.render('about')  ; 
-})
+    res.render('about');
+});
 
-
-app.listen(PORT, () => console.log('Now listening'));
+app.listen(PORT, () => console.log('Now listening on port', PORT));
