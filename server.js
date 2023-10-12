@@ -1,6 +1,8 @@
 const express = require('express');
 const axios = require("axios")
 
+var compression = require('compression') 
+
 const exphbs = require('express-handlebars');
 const path = require("path")
 const session = require("express-session");
