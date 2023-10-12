@@ -59,6 +59,6 @@ const addToFav = async (event) => {
   const response= await fetch(`/api/favories/${title}`,{
     method: 'POST'
   });
-   if (response.ok)
+   if (response.ok);
    
 }
