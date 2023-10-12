@@ -27,6 +27,10 @@ body, h1,  h3, p, ul {
     color: white;
    
   }
+
+  h2{
+    color: antiquewhite;
+  }
   header nav ul {
     list-style-type: none;
     margin: 0;
