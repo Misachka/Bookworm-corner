@@ -1,15 +1,36 @@
 const express = require('express');
-const axios = require("axios");
+const axios = require("axios")
+
 const exphbs = require('express-handlebars');
-const path = require("path");
+const express = require("express");
+const path = require("path")
+const session = require("express-session");
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create();
 
-// Serve static files from the 'public' directory
-app.use('/public', express.static(__dirname + '/public'));
+// compress all responses
+
+app.use(compression())
+
+
+// Requiring our models for syncing
+
+const db = require("./models");
+
+
+// Sets up the Express app to handle data parsing
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+
+// Set Handlebars.
+
 
 // Set Handlebars
 app.engine('handlebars', hbs.engine);
