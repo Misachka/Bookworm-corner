@@ -1,58 +1,28 @@
 const express = require('express');
-const axios = require("axios")
-
-<<<<<<< HEAD
+const axios = require("axios");
 const exphbs = require('express-handlebars');
-=======
-const express = require("express");
-const path = require("path")
-const session = require("express-session");
-
->>>>>>> 9a9cd585f24ca7eb0b4d19453ae496234c53bf44
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-<<<<<<< HEAD
 const hbs = exphbs.create();
-=======
 
-// compress all responses
+// Serve static files from the 'public' directory
+app.use('/public', express.static(__dirname + '/public'));
 
-app.use(compression())
-
-
-// Requiring our models for syncing
-
-const db = require("./models");
-
-
-// Sets up the Express app to handle data parsing
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-
-
-// Set Handlebars.
-
->>>>>>> 9a9cd585f24ca7eb0b4d19453ae496234c53bf44
-
+// Set Handlebars
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-// Static directory
-app.use(express.static("public"));
-
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-
 app.get("/", (req, res) => {
-    res.render('home')  ; 
-})
+    res.render('home');
+});
+
 app.get("/:genre", (req, res) => {
+    
+
+
     const url = "https://www.googleapis.com/books/v1/volumes?q=category:" + req.params.genre +"&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg"
 
     axios.get(url)
@@ -63,15 +33,14 @@ app.get("/:genre", (req, res) => {
         res.json(books);
         console.log ('got book items');
     })
-})
+});
 
 app.get("/favorites", (req, res) => {
-    res.render('favorites')  ; 
-})
+    res.render('favorites');
+});
 
 app.get("/about", (req, res) => {
-    res.render('about')  ; 
-})
+    res.render('about');
+});
 
-
-app.listen(PORT, () => console.log('Now listening'));
+app.listen(PORT, () => console.log('Now listening on port', PORT));

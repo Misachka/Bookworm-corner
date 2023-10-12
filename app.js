@@ -1,13 +1,14 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
-
+const path = require('path');
 const app = express();
-
+const axios = require("axios");
 // Set up Handlebars as the view engine here 
 const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+app.use('/public', express.static(__dirname + '/public'));
 // this is  sample  Sample books data
 const books = [
   { title: 'Book 1', author: 'Author 1' },
