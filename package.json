@@ -29,7 +29,7 @@
     "passport-local": "^ 1.0.0",
     "path": "^0.12.7",
     "sequelize": "^6.33.0"
-  }
+  },
     "moment": "^2.29.4",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
@@ -37,11 +37,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "sequelize": "^6.3.5"
-<<<<<<< HEAD
   }
-=======
-  },
-  "devDependencies": {}
 
->>>>>>> 9a9cd585f24ca7eb0b4d19453ae496234c53bf44
-}
+
+
