@@ -1,6 +1,6 @@
 <main>
     <section class="search-section">
-        <h1>Welcome to our Bookstore</h1>
+        <h2>Welcome to our Bookstore</h2>
         <p>Find your favorite books and explore a wide range of genres in BookWarm Store.</p>
         <div class="search-bar">
             <input type="text" placeholder="Search books...">
@@ -13,24 +13,14 @@
         <div id="genre-list">
             <button>Action</button>
             <button>Comedy</button>
+            <button>Fiction</button>
+            <button>History</button>
         </div>
 
-        {{!-- <div id="results-list">
+        <div id="results-list">
 
             
-        </div> --}}
-        {{#each books as |book|}}
-        <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{book.volumeInfo.title}}</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-        {{/each}}
-
-
-
+        </div>
     </section>
 </main>
 
