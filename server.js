@@ -3,7 +3,7 @@ const axios = require("axios")
 
 const exphbs = require('express-handlebars');
 const path = require("path")
-const session = require("express-session");
+//const session = require("express-session");
 
 
 const app = express();
@@ -13,12 +13,12 @@ const hbs = exphbs.create();
 
 // compress all responses
 
-app.use(compression())
+//app.use(compression())
 
 
 // Requiring our models for syncing
 
-const db = require("./models");
+//const db = require("./models");
 
 
 // Sets up the Express app to handle data parsing
@@ -43,7 +43,7 @@ app.use(express.json());
 
 
 app.get("/", (req, res) => {
-    res.render('home')  ; 
+    res.render('/home')  ; 
 })
 app.get("/:genre", (req, res) => {
     const url = "https://www.googleapis.com/books/v1/volumes?q=category:" + req.params.genre +"&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg"
