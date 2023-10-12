@@ -1,4 +1,18 @@
 const User = require('./User');
-const config = require('../config/config.json');
+const favorites = require('./favorites');
+const Book = require('./book');
 
-// Where we'll link users to their carts and favorites list
+User.hasMany(favorites, {
+    foreignKey: 'user_id',
+});
+
+favorites.belongsTo(User, {
+    foreignKey: 'user_id',
+});
+
+
+favorites.belongsTo(Book, {
+    foreignKey: 'book_id',
+});
+
+module.exports = { User, favorites, Book };
