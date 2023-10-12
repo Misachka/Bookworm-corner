@@ -1,64 +1,46 @@
 $("#genre-list button").on("click", function(event) {
   const genre = event.target.textContent;
-  console.log("getting books for " + genre)
-  
-  fetch("/genre/" + genre )
-  .then(res => res.json())
-  .then(data => {
-      console.log(data)
-      data.forEach((res) => {
-          
-      const newDiv = $("<div>");
-      newDiv.addClass("card");
-      //newDiv.css("width", "18rem");
-      
+  console.log("getting books for " + genre);
 
-      newDiv.html(`
-      <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="${data.volumeInfo.imageLinks.smallThumbnail}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      </div>
-    </div>
-      `)
+  fetch(`/api/books/${genre}`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+      $("#results-list").empty(); // Clear previous results
 
-      $("#results-list").append(newDiv)
+      data.forEach(book => {
+        const newDiv = $("<div>");
+        newDiv.addClass("card");
+        newDiv.css("width", "18rem");
 
-      })
+        newDiv.html(`
+          <div class="card">
+            <img class="card-img-top" src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'https://via.placeholder.com/128x192'}" alt="Book Cover">
+            <div class="card-body">
+              <h5 class="card-title">${book.volumeInfo.title}</h5>
+              <p class="card-text">${book.volumeInfo.description || 'No description available'}</p>
+              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
+            </div>
+          </div>
+        `);
 
-      // create a for loop that will create a card
+        $("#results-list").append(newDiv);
+      });
 
-      const newDiv = $("<div>");
-      newDiv.addClass("card");
-      //newDiv.css("width", "18rem");
-      
-       //need a button to add books to favorite//
-      newDiv.html(`
-      <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      // Event listener for "Add to Favorites" button
+      $(".btn-primary").on("click", function(event) {
+        const title = $(this).data("title");
+        addToFav(title);
+      });
+    });
+});
 
-        <button type="sumbit" class="btn btn-primary">Add to favorites</button>
-      
-      </div>
-    </div>
-      `)
-
-      $("#results-list").append(newDiv)
-
-      
-  })
-})
-
-console.log("hello")
-
-const addToFav = async (event) => {
-  const response= await fetch(`/api/favories/${title}`,{
+const addToFav = async (title) => {
+  const response = await fetch(`/api/favorites/${title}`, {
     method: 'POST'
   });
-   if (response.ok);
-   
-}
+
+  if (response.ok) {
+    console.log(`${title} added to favorites.`);
+  }
+};
