@@ -8,6 +8,9 @@ body, h1,  h3, p, ul {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
+    background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg"); 
+    background-size: cover; 
+    background-repeat: no-repeat;
   }
   
   header {
@@ -17,6 +20,17 @@ body, h1,  h3, p, ul {
     text-align: center;
   }
   
+
+  h1{
+    color:white;
+  }
+
+  .search-section {
+
+    color: antiquewhite;
+    margin-bottom: 25px;
+  }
+
   header nav ul {
     list-style-type: none;
     margin: 0;
@@ -57,7 +71,9 @@ body, h1,  h3, p, ul {
     text-decoration: underline;
   }
   
-
+  .search-bar{
+  size:500px;
+}
 
   
   /* Sample styling for a button */
