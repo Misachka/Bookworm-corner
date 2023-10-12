@@ -33,14 +33,16 @@ $("#genre-list button").on("click", function(event) {
       newDiv.addClass("card");
       //newDiv.css("width", "18rem");
       
-
+       //need a button to add books to favorite//
       newDiv.html(`
       <div class="card" style="width: 18rem;">
       <img class="card-img-top" src="..." alt="Card image cap">
       <div class="card-body">
         <h5 class="card-title">title</h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+
+        <button type="sumbit" class="btn btn-primary">Add to favorites</button>
+      
       </div>
     </div>
       `)
@@ -52,3 +54,11 @@ $("#genre-list button").on("click", function(event) {
 })
 
 console.log("hello")
+
+const addToFav = async (event) => {
+  const response= await fetch(`/api/favories/${title}`,{
+    method: 'POST'
+  });
+   if (response.ok)
+   
+}
