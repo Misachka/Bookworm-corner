@@ -54,8 +54,10 @@ app.get("/:genre", (req, res) => {
 
         const books = response.data.items;
 
-        res.json(books);
-        
+       // res.json(books);
+        res.render("home", {
+            books,
+        })
     })
 })
 

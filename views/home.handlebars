@@ -15,10 +15,22 @@
             <button>Comedy</button>
         </div>
 
-        <div id="results-list">
+        {{!-- <div id="results-list">
 
             
-        </div>
+        </div> --}}
+        {{#each books as |book|}}
+        <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{book.volumeInfo.title}}</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
+        {{/each}}
+
+
+
     </section>
 </main>
 
