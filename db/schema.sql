@@ -1,16 +1,2 @@
-DROP DATABASE IF EXISTS books_db;
-CREATE DATABASE books_db;
-
-USE books_db;
-
-CREATE TABLE book_info (
-    id INT PRIMARY KEY NOT NULL,
-    title
-    author
-    isbn
-    publisheddate
-    genre
-    description
-
-)
-
+DROP DATABASE IF EXISTS bookworm-corner_db;
+CREATE DATABASE bookworm-corner_db;
