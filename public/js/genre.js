@@ -19,29 +19,33 @@ $("#genre-list button").on("click", function(event) {
             <div class="card-body">
               <h5 class="card-title">${book.volumeInfo.title}</h5>
               <p class="card-text">${book.volumeInfo.description || 'No description available'}</p>
-              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
+              <button class="btn btn-primary add-to-favorites" data-book-id="${book.id}">Add to favorites</button>
+              </div>
             </div>
-          </div>
-        `);
-
-        $("#results-list").append(newDiv);
+          `);
+  
+          $("#results-list").append(newDiv);
+        });
       });
-
-      // Event listener for "Add to Favorites" button
-      $(".btn-primary").on("click", function(event) {
-        const title = $(this).data("title");
-        addToFav(title);
-      });
-    });
+  });
+  
+  
+$("#results-list").on("click", ".add-to-favorites", function(event) {
+  const bookId = $(this).data("book-id");
+  const bookTitle = $(this).data("book-title"); 
+  addToFav(bookId, bookTitle);
 });
 
-const addToFav = async (title) => {
-  const response = await fetch(`/api/favorites/${title}`, {
-    method: 'POST'
+const addToFav = async (bookId, bookTitle) => {
+  const response = await fetch(`/api/favorites`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ book_id: bookId }),
   });
 
   if (response.ok) {
-    console.log(`${title} added to favorites.`);
+    console.log(`${bookTitle} has been added to favorites.`);
+alert(`${bookTitle} has been added to favorites.`);
   }
 };
 
