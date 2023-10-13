@@ -44,3 +44,4 @@ const addToFav = async (title) => {
     console.log(`${title} added to favorites.`);
   }
 };
+
