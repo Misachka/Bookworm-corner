@@ -32,7 +32,7 @@ module.exports = function(app) {
 
   // loads favourites
   app.get("/favourites", isAuthenticated, function(req, res) {
-    res.render('favourites', {js: ['favroutes.js']});
+    res.render('favourites', {js: ['favourites.js']});
   });
 
   // loads about
