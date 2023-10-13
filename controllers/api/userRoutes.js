@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('./models');
+const { User } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
+    console.error(err);
     res.status(400).json(err);
   }
 });

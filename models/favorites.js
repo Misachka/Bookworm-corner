@@ -55,3 +55,5 @@ Favorites.init(
             modelName: 'favBook'
         }
     );
+
+    module.exports = Favorites;

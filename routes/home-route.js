@@ -1,7 +1,7 @@
 var path = require("path");
 
 // authenticated
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+var isAuthenticated = require("../config/middleware/authenticated");
 
 // Routes
 
@@ -13,7 +13,7 @@ module.exports = function(app) {
     if (req.user) {
       res.redirect("/home");
     } else {
-      res.render('signup', {js: ['signup.js']});
+      res.render('login', {js: ['login.js']});
     }
   });
 
