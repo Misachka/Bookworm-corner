@@ -1,53 +1,152 @@
-
-/* Sample CSS styles */
-body {
-    background-color: #fd3434;
+/* Reset  margin and padding */
+body, h1,  h3, p, ul {
+    margin: 0;
+    padding: 0;
   }
   
-  h1 {
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
     color: #333;
-
-    background-color: #fd3434;
-  }
- 
-body {
     background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg"); 
     background-size: cover; 
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
+  }
+  
+  header {
+    background-color: #1E90FF; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+
+  h1{
+    color:white;
+  }
+
+  .search-section {
+
+    color: antiquewhite;
+    margin-bottom: 25px;
+  }
+
+  header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav ul li {
+    display: inline;
+    margin-right: 15px;
+  }
+  
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  footer {
+    background-color: #1E90FF; /* Dodger Blue */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Sample styling for links */
+  a {
+    color: #1E90FF; /* Dodger Blue */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .search-bar{
+  size:500px;
+}
+
+  
+  /* Sample styling for a button */
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #1E90FF; /* Dodger Blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #005BB5; /* Slightly darker blue on hover */
+  }
+  
+  /* Log in CSS*/
+
+ 
+.body {
+  background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg"); 
+  background-size: cover; 
+  background-repeat: no-repeat; 
 }
 
 .form-group{
-    margin:15px;
+  margin:15px;
 }
 
 #Banner {
-    background-color: rgb(10, 111, 139);
-    color: rgba(65, 22, 13, 0.979);
-    text-align: center;
-    border-style:double;
-    border-width: 10px;
+  background-color: rgb(10, 111, 139);
+  color: rgba(65, 22, 13, 0.979);
+  text-align: center;
+  border-style:double;
+  border-width: 10px;
 }
 
 .userBox {
-    border-style: groove;
-    border-radius: 5px;
-    border-width: 10px;
-    border-color: rgb(10, 111, 139);
-    margin: 25px;
-    color: rgb(207, 183, 168);
-   background-color: rgb(121, 46, 26);
+  border-style: groove;
+  border-radius: 5px;
+  border-width: 10px;
+  border-color: rgb(10, 111, 139);
+  margin: 25px;
+  color: rgb(207, 183, 168);
+ background-color: rgb(121, 46, 26);
+ padding: 15px;
 }
 
 .btn{
-    background-color: rgb(10, 111, 139);
-    color: rgb(241, 209, 198);
-   font-size: 15px;
+  background-color: rgb(10, 111, 139);
+  color: rgb(241, 209, 198);
+ font-size: 15px;
 }
 
 .bookImg {
-    width: 260px;
-    height: 140px;
-    float: right;
-    
+  width: 260px;
+  height: 140px;
+  float: right;
+  
+}
+
+.about {
+  border-style: groove;
+  border-radius: 5px;
+  border-width: 10px;
+  border-color: rgb(10, 111, 139);
+  margin: 25px;
+  color: rgb(10, 111, 139);
+ background-color: rgb(65, 22, 13, 0.979);
+ padding: 15px;
+
 }
 
