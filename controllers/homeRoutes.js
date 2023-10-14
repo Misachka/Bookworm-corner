@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const withAuth = require('../utils/auth');
+const withAuth = require('../config/middleware/passport');
 const {User, Book, Favorites} = require('../models');
 
 router.get('/login', (req, res) => {
@@ -12,4 +12,5 @@ router.get('/login', (req, res) => {
     res.render('login');
   });
 
-  
+
+

@@ -9,7 +9,7 @@ const loginPage= async (event) => {
   
     if (email && password) {
 
-      const response = await fetch('/api/users/login', {
+      const response = await fetch('/api/users', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
@@ -17,7 +17,7 @@ const loginPage= async (event) => {
   
       if (response.ok) {
   
-        document.location.replace('/homePage');
+        document.location.replace('/home');
       } else {
         alert(response.statusText);
       }
@@ -39,7 +39,7 @@ const loginPage= async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/homePage');
+        document.location.replace('/home');
       } else {
         alert(response.statusText);
       }
