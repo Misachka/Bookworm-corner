@@ -17,7 +17,7 @@ const loginPage= async (event) => {
   
       if (response.ok) {
   
-        document.location.replace('/homePage');
+        window.location.replace('/home');
       } else {
         alert(response.statusText);
       }
@@ -39,7 +39,7 @@ const loginPage= async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/homePage');
+        window.location.replace('/home');
       } else {
         alert(response.statusText);
       }

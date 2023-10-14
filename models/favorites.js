@@ -52,7 +52,7 @@ Favorites.init(
             timestamps: false,
             underscored: true,
             freezeTableName: true,
-            modelName: 'favBook'
+            modelName: 'Favorites'
         }
     );
 

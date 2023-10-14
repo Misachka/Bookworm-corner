@@ -1,15 +1,37 @@
-const router = require('express').Router();
-const withAuth = require('../utils/auth');
-const {User, Book, Favorites} = require('../models');
+var path = require("path");
+// authenticated
+const router = require("express").Router();
+var isAuthenticated = require("../config/middleware/authenticated");
 
-router.get('/login', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
-    if (req.session.logged_in) {
+ router.get("/", function(req, res) {
+    if (req.user) {
       res.redirect('/home');
-      return;
+    } else {
+      res.render('home', {js: ['login.js']});
     }
-  
-    res.render('login');
   });
 
-  
+  router.get("/login", function(req, res) {
+    if (req.user) {
+      res.redirect('/home');
+    } else {
+      res.render('login', {js: ['login.js']});
+    }
+  });
+
+  router.get("/home", isAuthenticated, function(req, res) {
+    res.render('home', {js: ['home.js']});
+  });
+
+
+  // loads favourites
+  router.get("/favourites", isAuthenticated, function(req, res) {
+    res.render('favourites', {js: ['favroutes.js']});
+  });
+
+
+  router.get("/logout", isAuthenticated, function(req, res) {
+    res.render('logout', {js: ['logout.js']});
+  });
+
+module.exports = router;
