@@ -2,8 +2,9 @@ const path = require("path");
 const express = require('express');
 const session = require('express-session');
 //const axios = require("axios");
+const db = require('./models');
 const exphbs = require('express-handlebars');
-const router = require('./controllers');
+const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -36,7 +37,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname , 'public')));
 
-app.use(router);
+app.use(routes);
 
 
 

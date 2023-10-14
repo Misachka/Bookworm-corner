@@ -24,23 +24,37 @@
 </head>
  <header>
     <h1> BookWarm-Corner BookStore</h1>
-    <nav>
-      <ul>
-        <li><a href="/home-old">Home</a></li>
-        <li><a href="/about">About</a></li>
+    <nav> 
+      {{#if logged_in}}
+        <a href="/home">Welcome Home</a> 
+           <ul>
          <li><a href="/favorites">Favorites</a></li>
           <li><a href="/">Cart</a></li>
-          <li><a href="/logout">Logout</a></li>
+           <li><a href="/login">Logout</a></li>
+        </ul>|
+                {{else}}
+      <ul>
+         <li><a href="/favorites">Favorites</a></li>
+          <li><a href="/">Cart</a></li>
+          <li><a href="/login">Login</a></li>
       </ul>
+        {{/if}}
     </nav>
   </header>
 <body>
- 
+ <nav>
+       
+
+     
   {{{body}}}
 
 <footer>
     <p>&copy; 2023 BookWarm-Corner</p>
   </footer>
+   {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+
 </body>
 
 </html>

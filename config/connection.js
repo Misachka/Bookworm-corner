@@ -1,5 +1,4 @@
-const Sequelize = require('sequelize');
-var compression = require('compression') 
+const Sequelize = require('sequelize'); 
 require('dotenv').config();
 
 let sequelize;
