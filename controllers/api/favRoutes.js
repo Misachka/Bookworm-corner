@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/favorites', withAuth, async (req, res) => {
   try {
     
     const book = await Book.findByPk(req.body.book_id);
@@ -24,7 +24,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/favorites', withAuth, async (req, res) => {
     try {
       const user = await User.findByPk(req.session.user_id, {
         include: [{ model: Favorites, include: [Book] }],
