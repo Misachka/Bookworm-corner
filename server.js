@@ -37,7 +37,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname , 'public')));
 
 app.use(router);
-require ('./routes/home-route')(app);
+
 
 
 sequelize.sync({force : false}).then(function(){
