@@ -134,7 +134,8 @@ body, h1,  h3, p, ul {
 .bookImg {
   width: 260px;
   height: 140px;
-  float: right;
+  float:right;
+ 
   
 }
 

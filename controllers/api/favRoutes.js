@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { favorites, User, Book } = require('../../models/favorites');
+const { Favorites, User, Book } = require('../../models/favorites');
 const withAuth = require('../../utils/auth');
 
 
@@ -13,7 +13,7 @@ router.post('/', withAuth, async (req, res) => {
       res.status(404).json({ message: 'Book not found' });
       return;
     }
-    const addFave = await favorites.create({
+    const addFave = await Favorites.create({
       user_id: req.session.user_id,
       book_id: book.id,
     });
@@ -27,34 +27,15 @@ router.post('/', withAuth, async (req, res) => {
 router.get('/', withAuth, async (req, res) => {
     try {
       const user = await User.findByPk(req.session.user_id, {
-        include: [{ model: favorites, include: [Book] }],
+        include: [{ model: Favorites, include: [Book] }],
       });
   
-      res.render('favorites', { user });
+      res.render('Favorites', { user });
     } catch (err) {
       res.status(500).json(err);
     }
   });
   
 
-// router.delete('/:id', withAuth, async (req, res) => {
-//   try {
-//     const favBook = await favorites.remove({
-//       where: {
-//         id: req.params.id,
-//         book_id: req.session.user_id,
-//       },
-//     });
-
-//     if (!favBook) {
-//       res.status(404).json({ message: 'Book could not be located.' });
-//       return;
-//     }
-
-//     res.status(200).json(favBook);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;
