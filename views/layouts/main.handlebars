@@ -24,23 +24,33 @@
 </head>
  <header>
     <h1> BookWarm-Corner BookStore</h1>
-    <nav>
+    <nav> 
+      {{#if logged_in}}
+        <a href="/home">Welcome Home</a> |
+        <button class="button" id="logout">logout</button>
+                {{else}}
       <ul>
-        <li><a href="/home">Home</a></li>
         <li><a href="/about">About</a></li>
          <li><a href="/favorites">Favorites</a></li>
           <li><a href="/">Cart</a></li>
-          <li><a href="/logout">Logout</a></li>
+          <li><a href="/login">Login</a></li>
       </ul>
+        {{/if}}
     </nav>
   </header>
 <body>
- 
+ <nav>
+       
+
+     
   {{{body}}}
 
 <footer>
     <p>&copy; 2023 BookWarm-Corner</p>
   </footer>
+   {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>

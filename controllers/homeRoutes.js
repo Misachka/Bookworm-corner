@@ -1,16 +1,46 @@
-const router = require('express').Router();
-const withAuth = require('../config/middleware/passport');
-const {User, Book, Favorites} = require('../models');
+var path = require("path");
+// authenticated
+var isAuthenticated = require("../config/middleware/authenticated");
 
-router.get('/login', (req, res) => {
-    // If the user is already logged in, redirect the request to another route
-    if (req.session.logged_in) {
+// Routes
+
+module.exports = function(app) {
+
+
+  // index route loads home.html
+  app.get("/", function(req, res) {
+    if (req.user) {
       res.redirect('/home');
-      return;
+    } else {
+      res.render('login', {js: ['login.js']});
     }
-  
-    res.render('login');
+  });
+
+  app.get("/login", function(req, res) {
+    if (req.user) {
+      res.redirect('/home');
+    } else {
+      res.render('login', {js: ['login.js']});
+    }
+  });
+
+  app.get("/home", isAuthenticated, function(req, res) {
+    res.render('home', {js: ['home.js']});
   });
 
 
+  // loads favourites
+  app.get("/favourites", isAuthenticated, function(req, res) {
+    res.render('favourites', {js: ['favroutes.js']});
+  });
 
+  // loads about
+  app.get("/about", isAuthenticated, function(req, res) {
+    res.render('about', {js: ['about.js']});
+  });
+
+  app.get("/logout", isAuthenticated, function(req, res) {
+    res.render('logout', {js: ['logout.js']});
+  });
+
+};
