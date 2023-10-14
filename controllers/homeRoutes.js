@@ -7,7 +7,7 @@ var isAuthenticated = require("../config/middleware/authenticated");
     if (req.user) {
       res.redirect('/home');
     } else {
-      res.render('login', {js: ['login.js']});
+      res.render('home', {js: ['login.js']});
     }
   });
 
@@ -30,7 +30,7 @@ var isAuthenticated = require("../config/middleware/authenticated");
   });
 
 
-  app.get("/logout", isAuthenticated, function(req, res) {
+  router.get("/logout", isAuthenticated, function(req, res) {
     res.render('logout', {js: ['logout.js']});
   });
 

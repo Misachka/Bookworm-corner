@@ -26,11 +26,14 @@
     <h1> BookWarm-Corner BookStore</h1>
     <nav> 
       {{#if logged_in}}
-        <a href="/home">Welcome Home</a> |
-        <button class="button" id="logout">logout</button>
+        <a href="/home">Welcome Home</a> 
+           <ul>
+         <li><a href="/favorites">Favorites</a></li>
+          <li><a href="/">Cart</a></li>
+           <li><a href="/login">Logout</a></li>
+        </ul>|
                 {{else}}
       <ul>
-        <li><a href="/about">About</a></li>
          <li><a href="/favorites">Favorites</a></li>
           <li><a href="/">Cart</a></li>
           <li><a href="/login">Login</a></li>
@@ -51,6 +54,7 @@
    {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+
 </body>
 
 </html>
