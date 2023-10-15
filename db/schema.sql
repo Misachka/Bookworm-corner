@@ -1,2 +1,3 @@
-DROP DATABASE IF EXISTS bookworm-corner_db;
-CREATE DATABASE bookworm-corner_db;
+DROP DATABASE IF EXISTS books_db;
+CREATE DATABASE books_db;
+
