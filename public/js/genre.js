@@ -9,7 +9,8 @@ $("#genre-list button").on("click", function(event) {
       const books = data.items;
       console.log(books);
       const booksContainer = document.querySelector('#results-list');
-      //function renderBooks(books){
+      
+      $('#results-list').empty();
 
       
       books.forEach((book) => {
