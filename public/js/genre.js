@@ -2,13 +2,18 @@ $("#genre-list button").on("click", function(event) {
   const genre = event.target.textContent;
   console.log("getting books for " + genre);
 
-  fetch(`/api/books/${genre}`)
+  fetch(`https://www.googleapis.com/books/v1/volumes?q=category:${genre}&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg`)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
-      $("#results-list").empty(); // Clear previous results
+      //console.log(data);
+      const books = data.items;
+      console.log(books);
+      //const booksContainer = document.querySelector('#results-list');
+      //function renderBooks(books){
 
-      data.forEach(book => {
+      
+      books.forEach((book) => {
+
         const newDiv = $("<div>");
         newDiv.addClass("card");
         newDiv.css("width", "18rem");
@@ -19,14 +24,17 @@ $("#genre-list button").on("click", function(event) {
             <div class="card-body">
               <h5 class="card-title">${book.volumeInfo.title}</h5>
               <p class="card-text">${book.volumeInfo.description || 'No description available'}</p>
-              <button class="btn btn-primary add-to-favorites" data-book-id="${book.id}">Add to favorites</button>
-              </div>
+              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
             </div>
-          `);
-  
-          $("#results-list").append(newDiv);
-        });
-      });
+          </div>
+        `);
+
+        $("#results-list").append(newDiv);
+      })
+    //newDiv.css("width", "18rem");
+
+      
+       });
   });
   
   
