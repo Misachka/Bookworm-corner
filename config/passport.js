@@ -20,13 +20,13 @@ passport.use(new LocalStrategy(
     
       if (!dbUser) {
         return done(null, false, {
-          message: "Incorrect email."
+          message: "Oops! Wrong email reader."
         });
       }
       // If there is a user with the given email, but the password the user gives us is incorrect
       else if (!dbUser.validPassword(password)) {
         return done(null, false, {
-          message: "Incorrect password."
+          message: "No key, no entry!"
         });
       }
      
@@ -39,11 +39,13 @@ passport.use(new LocalStrategy(
 // Sequelize needs to serialize and deserialize the user
 
 passport.serializeUser(function(user, cb) {
-  cb(null, user);
+  cb(null, user.id);
 });
 
-passport.deserializeUser(function(obj, cb) {
-  cb(null, obj);
+passport.deserializeUser(function(id, cb) {
+  db.User.findByPk(id).then(function(user) {
+    cb(null, user);
+  });
 });
 
 

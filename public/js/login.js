@@ -17,7 +17,7 @@ const loginPage= async (event) => {
   
       if (response.ok) {
   
-        document.location.replace('/homePage');
+        window.location.replace('/home');
       } else {
         alert(response.statusText);
       }
@@ -27,19 +27,19 @@ const loginPage= async (event) => {
   const newReader = async (event) => {
     event.preventDefault();
   
-    const username = document.querySelector('username').value.trim();
+    const name = document.querySelector('#username').value.trim();
     const email = document.querySelector('#new-email').value.trim();
     const password = document.querySelector('#new-pass').value.trim();
   
-    if (username && email && password) {
+    if (name && email && password) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ username, email, password }),
+        body: JSON.stringify({ name, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/homePage');
+        window.location.replace('/home');
       } else {
         alert(response.statusText);
       }

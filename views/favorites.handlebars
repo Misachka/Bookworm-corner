@@ -1,6 +1,19 @@
-<h1>Here Are Your Favorite Books</h1>
-<div>
-    <ol>
-        
-    </ol>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Books</title>
+</head>
+<body>
+    <h1>My Favorite Books</h1>
+    <ul>
+      {{#each user.favorites}}
+        <li>
+          <h2>{{this.book.title}}</h2>
+          <p>Author: {{this.book.author}}</p>
+          <p>Genre: {{this.book.genre}}</p>
+          <p>Description: {{this.book.description}}</p>
+        </li>
+      {{/each}}
+    </ul>
+</body>
+</html>
