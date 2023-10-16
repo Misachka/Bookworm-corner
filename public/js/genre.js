@@ -30,10 +30,6 @@ $("#genre-list button").on("click", function(event) {
           </div>
         `);
 
-
-
-    
-
         $("#results-list").append(newDiv);
       })
     //newDiv.css("width", "18rem");
@@ -42,7 +38,54 @@ $("#genre-list button").on("click", function(event) {
        });
   });
   
-  
+  //search-bar
+  $("#search-btn").on("click", function(){
+    let input = document.querySelector(".search-bar").value;
+    //input = input.toLowerCase();
+    //console.log("getting books for " + genre);
+
+  fetch(`https://www.googleapis.com/books/v1/volumes?q=${input}&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg`)
+    .then(res => res.json())
+    .then(data => {
+      //console.log(data);
+      const books = data.items;
+      console.log(books);
+      const booksContainer = document.querySelector('#results-list');
+      
+      $('#results-list').empty();
+
+      
+      books.forEach((book) => {
+
+        const newDiv = $("<div>");
+        newDiv.addClass("card");
+        //newDiv.css("width", "30rem");
+
+        newDiv.html(`
+          <div class="m-2 card">
+            <img class="card-img-top" src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'https://via.placeholder.com/128x192'}" alt="Book Cover">
+            <div class="card-body">
+              <h5 class="card-title">${book.volumeInfo.title}</h5>
+              
+              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
+            </div>
+          </div>
+        `);
+
+        $("#results-list").append(newDiv);
+      })
+    //newDiv.css("width", "18rem");
+
+      
+       });
+  })
+
+
+
+
+
+
+
 $("#results-list").on("click", ".add-to-favorites", function(event) {
   const bookId = $(this).data("book-id");
   const bookTitle = $(this).data("book-title"); 
