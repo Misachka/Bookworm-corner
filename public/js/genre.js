@@ -18,6 +18,7 @@ $("#genre-list button").on("click", function(event) {
         const newDiv = $("<div>");
         newDiv.addClass("card");
         //newDiv.css("width", "30rem");
+
         newDiv.html(`
           <div class="m-2 card">
             <img class="card-img-top" src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'https://via.placeholder.com/128x192'}" alt="Book Cover">
@@ -30,8 +31,7 @@ $("#genre-list button").on("click", function(event) {
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to cart</button>
             </div>
           </div>
-        </div>
-      `);
+        `);
 
 
 
@@ -41,6 +41,9 @@ $("#genre-list button").on("click", function(event) {
       })
     //newDiv.css("width", "18rem");
 
+      
+       });
+  });
   
   
 $("#results-list").on("click", ".add-to-favorites", function(event) {
@@ -89,5 +92,3 @@ const addToCart = (bookId, bookTitle) => {
   console.log(`${bookTitle} has been added to the cart.`);
   alert(`${bookTitle} has been added to the cart.`);
 };
-
-
