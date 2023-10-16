@@ -11,21 +11,25 @@ Book.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        google_id: {
+            type:DataTypes.STRING
+
+        },
         title: {
             type: DataTypes.STRING
         },
         author: {
             type: DataTypes.STRING
         },
-        genre: {
-            type: DataTypes.STRING
-        },
-        description: {
-            type: DataTypes.STRING
-        },
-        isbn: {
-            type: DataTypes.STRING
-        },
+        // genre: {
+        //     type: DataTypes.STRING
+        // },
+        // description: {
+        //     type: DataTypes.STRING
+        // },
+        // isbn: {
+        //     type: DataTypes.STRING
+        // },
         thumbnail: {
             type: DataTypes.STRING
         }

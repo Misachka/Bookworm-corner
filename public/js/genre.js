@@ -21,13 +21,13 @@ $("#genre-list button").on("click", function(event) {
 
         newDiv.html(`
           <div class="m-2 card">
-            <img class="card-img-top" src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'https://via.placeholder.com/128x192'}" alt="Book Cover">
+            <img class="card-img-top" src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Book Cover">
             <div class="card-body">
               <h5 class="card-title">${book.volumeInfo.title}</h5>
               
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
               <button class="btn btn-primary add-to-cart" data-book-id="${book.id}" data-book-title="${book.volumeInfo.title}">Add to Cart</button>
-              <button class="btn btn-primary add-to-favorites" data-book-id="${book.id}">Add to favorites</button>
+              <button class="btn btn-primary add-to-favorites" data-title="${book.volumeInfo.title}" data-thumbnail="${book.volumeInfo.imageLinks.smallThumbnail}" data-author="${book.volumeInfo.authors}" data-book-id="${book.id}">Add to favorites</button>
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to cart</button>
             </div>
           </div>
@@ -48,8 +48,10 @@ $("#genre-list button").on("click", function(event) {
   
 $("#results-list").on("click", ".add-to-favorites", function(event) {
   const bookId = $(this).data("book-id");
-  const bookTitle = $(this).data("book-title"); 
-  addToFav(bookId, bookTitle);
+  const bookTitle = $(this).data("book-title");
+  const bookAuthor =  $(this).data("book-author");
+  const bookImg = $(this).data("book-thumbnail");
+  addToFav(bookId, bookTitle, bookAuthor, bookImg);
   
 });
 
@@ -60,11 +62,11 @@ $("#results-list").on("click", ".add-to-cart", function(event) {
   addToCart(bookId, bookTitle);
 });
 
-const addToFav = async (bookId, bookTitle) => {
+const addToFav = async (bookId, bookTitle, bookAuthor, bookImg) => {
   const response = await fetch(`/api/favorites`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ book_id: bookId, bookTitle }),
+    body: JSON.stringify({ google_id: bookId, title : bookTitle, author : bookAuthor, thumbnail : bookImg }),
   });
 
   if (response.ok) {
