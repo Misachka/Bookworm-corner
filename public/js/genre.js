@@ -26,6 +26,7 @@ $("#genre-list button").on("click", function(event) {
               <h5 class="card-title">${book.volumeInfo.title}</h5>
               
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
+              <button class="btn btn-primary add-to-cart" data-book-id="${book.id}" data-book-title="${book.volumeInfo.title}">Add to Cart</button>
             </div>
           </div>
         `);
@@ -49,6 +50,13 @@ $("#results-list").on("click", ".add-to-favorites", function(event) {
   addToFav(bookId, bookTitle);
 });
 
+
+$("#results-list").on("click", ".add-to-cart", function(event) {
+  const bookId = $(this).data("book-id");
+  const bookTitle = $(this).data("book-title");
+  addToCart(bookId, bookTitle);
+});
+
 const addToFav = async (bookId, bookTitle) => {
   const response = await fetch(`/api/favorites`, {
     method: 'POST',
@@ -64,5 +72,23 @@ alert(`${bookTitle} has been added to favorites.`);
 
 
 
+
+const cart = [];
+
+const addToCart = (bookId, bookTitle) => {
+  const existingBook = cart.find(item => item.bookId === bookId);
+
+  if (existingBook) {
+    existingBook.quantity++;
+  } else {
+    cart.push({ bookId, bookTitle, quantity: 1 });
+  }
+
+  // Update the cart data in local storage
+  localStorage.setItem('cart', JSON.stringify(cart));
+
+  console.log(`${bookTitle} has been added to the cart.`);
+  alert(`${bookTitle} has been added to the cart.`);
+};
 
 

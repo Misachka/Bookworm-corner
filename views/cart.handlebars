@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Cart</title>
+</head>
+<body>
+  <h1>Your Cart</h1>
+  <ul>
+    {{#each cart}}
+      <li>
+        <span>Book ID: {{this.book_Id}}</span>
+        <span>Book title: {{this.bookTitle}}</span>
+      </li>
+    {{/each}}
+  </ul>
+</body>
+</html>
+
