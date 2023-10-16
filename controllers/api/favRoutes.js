@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Favorites} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/favorites', withAuth, async (req, res) => {
     try {
       const user = await User.findByPk(req.session.user_id, {
         include: [{ model: Favorites, include: [Book] }],
