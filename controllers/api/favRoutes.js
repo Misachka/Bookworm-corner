@@ -17,7 +17,15 @@ router.get('/favorites', withAuth, async (req, res) => {
 router.post('/favorites', withAuth, async (req, res) => {
   try {
     
-    const book = await Book.findByPk(req.body.book_id);
+    const book = await Book.findOrCreate({
+      where : { google_id: '' },
+      defaults:{
+        google_id : " ",
+        title : " ",
+        author : " "
+
+      }
+    })
 
     if (!book) {
       res.status(404).json({ message: 'Book not found' });
