@@ -11,8 +11,13 @@ Favorites.belongsTo(User, {
 });
 
 
-Favorites.belongsTo(Book, {
+Book.belongsTo(Favorites, {
     foreignKey: 'book_id',
 });
+
+Favorites.hasMany(Book, {
+    foreignKey: 'book_id',
+});
+
 
 module.exports = { User, Favorites, Book };

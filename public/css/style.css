@@ -159,27 +159,96 @@ body, h1,  h3, p, ul {
 
 }
 
-/* .card {
-  margin-top:5% ;
-  margin-right:5% ;
-  margin-bottom: 25%;
-  border-radius: 8px;
-  border: 1px solid #cccccc;
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  box-sizing: border-box;
-  width: 200px;
-  height: 200px;
-  transition: all linear 200ms;
-} */
-.card:hover{
-  transform: scale(1.1);
-  transition: all linear 200ms;
-  z-index: 1;
-  box-shadow: 1px 1px 10px rgba(0,0,0,.3);
-  cursor: pointer;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
+
+
+
+
+/* CSS for Book Cards */
+
+
+#results-list {
+  color: #333; /* Adjust text color */
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap to the next row */
+  justify-content: space-around; /* Align cards evenly within the container */
+}
+
+.card {
+ /* Adjust the width as needed */
+  margin: 10px;
+  padding: 15px;
+  background-color: #dde2eb; /* Card background color */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+
+
+}
+
+
+.card:hover {
+  transform: translateY(-15px); /* Move the card up slightly on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Change box shadow on hover */
+}
+.card img {
+  height: 400px; 
+  width: 400px; 
+  object-fit: cover;
+  border-radius: 5px; 
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-top: 10px; 
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1; 
+}
+
+.btn-primary {
+  width: 100%;
+  margin-top: auto; 
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+  color: #fff; 
+}
+
