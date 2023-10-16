@@ -26,6 +26,7 @@ $("#genre-list button").on("click", function(event) {
               <h5 class="card-title">${book.volumeInfo.title}</h5>
               
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
+              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to cart</button>
             </div>
           </div>
         `);
@@ -68,6 +69,7 @@ $("#genre-list button").on("click", function(event) {
               <h5 class="card-title">${book.volumeInfo.title}</h5>
               
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
+              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to cart</button>
             </div>
           </div>
         `);
@@ -93,7 +95,7 @@ $("#results-list").on("click", ".add-to-favorites", function(event) {
 });
 
 const addToFav = async (bookId, bookTitle) => {
-  const response = await fetch(`/api/favorites`, {
+  const response = await fetch(`/api/favRoutes`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ book_id: bookId }),
