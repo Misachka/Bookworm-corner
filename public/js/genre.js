@@ -27,6 +27,8 @@ $("#genre-list button").on("click", function(event) {
               
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
               <button class="btn btn-primary add-to-cart" data-book-id="${book.id}" data-book-title="${book.volumeInfo.title}">Add to Cart</button>
+              <button class="btn btn-primary add-to-favorites" data-book-id="${book.id}">Add to favorites</button>
+              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to cart</button>
             </div>
           </div>
         `);

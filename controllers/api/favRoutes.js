@@ -1,8 +1,18 @@
 const router = require('express').Router();
-const { Favorites, User, Book } = require('../../models');
+const { Favorites} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
+router.get('/favorites', withAuth, async (req, res) => {
+    try {
+      const user = await User.findByPk(req.session.user_id, {
+        include: [{ model: Favorites, include: [Book] }],
+      });
+  
+      res.render('favorites', { user });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 router.post('/favorites', withAuth, async (req, res) => {
   try {
@@ -24,17 +34,7 @@ router.post('/favorites', withAuth, async (req, res) => {
   }
 });
 
-router.get('/favorites', withAuth, async (req, res) => {
-    try {
-      const user = await User.findByPk(req.session.user_id, {
-        include: [{ model: Favorites, include: [Book] }],
-      });
-  
-      res.render('Favorites', { user });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+
   
 
 
