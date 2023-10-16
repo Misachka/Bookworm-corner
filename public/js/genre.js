@@ -28,6 +28,8 @@ $("#genre-list button").on("click", function(event) {
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
             </div>
           </div>
+
+
         `);
 
         $("#results-list").append(newDiv);
@@ -37,6 +39,7 @@ $("#genre-list button").on("click", function(event) {
       
        });
   });
+
   
   //search-bar
   $(".search-bar").on("keyup", e =>{
