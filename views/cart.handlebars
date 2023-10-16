@@ -1,21 +1,36 @@
+<!-- cart.handlebars -->
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Cart</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars/4.7.7/handlebars.min.js"></script>
+
 </head>
 <body>
-  <h1>Your Cart</h1>
-  <ul>
-    {{#each cart}}
-      <li>
-        <span>Book ID: {{this.book_Id}}</span>
-        <span>Book Title: {{this.bookTitle}}</span>
-        <span>Quantity: {{this.quantity}}</span>
-        
-        
-      </li>
-    {{/each}}
-  </ul>
+  <div id="cart">
+    <h1>Your Cart</h1>
+    <ul>
+      {{#each cart}}
+        <li>
+          Book ID: {{this.bookId}}, Title: {{this.bookTitle}}, Quantity: {{this.quantity}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <!-- Include jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Include Handlebars -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars/4.7.7/handlebars.min.js"></script>
+
+  <!-- Include cart JavaScript file -->
+  
+<script src="/js/cart.js"></script>
+
 </body>
 </html>
 

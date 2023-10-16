@@ -25,6 +25,10 @@ body, h1,  h3, p, ul {
     color:white;
   }
 
+  h2{
+    color: white;
+   
+  }
   .search-section {
 
     color: antiquewhite;
