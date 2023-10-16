@@ -66,14 +66,14 @@ $("#genre-list button").on("click", function(event) {
         //newDiv.css("width", "30rem");
 
         newDiv.html(`
-          <div class="m-2 card">
-            <img class="card-img-top" src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'https://via.placeholder.com/128x192'}" alt="Book Cover">
-            <div class="card-body">
-              <h5 class="card-title">${book.volumeInfo.title}</h5>
-              
-              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
-            </div>
-          </div>
+        <div>
+        <img class="card-img-top" src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'https://via.placeholder.com/128x192'}" alt="Book Cover">
+        <div class="card-body">
+          <h5 class="card-title">${book.volumeInfo.title}</h5>
+          
+          <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
+        </div>
+      </div>
         `);
 
         $("#results-list").append(newDiv);
