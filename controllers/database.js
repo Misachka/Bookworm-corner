@@ -6,6 +6,11 @@ const CartItem = sequelize.define('cartItem', {
     type: DataTypes.STRING,
     allowNull: false
   },
+
+  bookTitle: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
   quantity: {
     type: DataTypes.INTEGER,
     defaultValue: 1
