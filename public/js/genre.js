@@ -39,12 +39,13 @@ $("#genre-list button").on("click", function(event) {
   });
   
   //search-bar
-  $("#search-btn").on("click", function(){
-    let input = document.querySelector(".search-bar").value;
+  $(".search-bar").on("keyup", e =>{
+    const searchInput = e.target.value;
+    //const searchBook = event.target.searchInput;
     //input = input.toLowerCase();
     //console.log("getting books for " + genre);
 
-  fetch(`https://www.googleapis.com/books/v1/volumes?q=${input}&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg`)
+  fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}&key=AIzaSyAi3EIdAR7i4QzZGHPltWG5xfkBqiVo9vg`)
     .then(res => res.json())
     .then(data => {
       //console.log(data);
@@ -74,6 +75,7 @@ $("#genre-list button").on("click", function(event) {
 
         $("#results-list").append(newDiv);
       })
+      return;
     //newDiv.css("width", "18rem");
 
       
