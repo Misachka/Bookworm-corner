@@ -50,6 +50,7 @@ $("#results-list").on("click", ".add-to-favorites", function(event) {
   const bookId = $(this).data("book-id");
   const bookTitle = $(this).data("book-title"); 
   addToFav(bookId, bookTitle);
+  
 });
 
 
@@ -63,7 +64,7 @@ const addToFav = async (bookId, bookTitle) => {
   const response = await fetch(`/api/favorites`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ book_id: bookId }),
+    body: JSON.stringify({ book_id: bookId, bookTitle }),
   });
 
   if (response.ok) {
