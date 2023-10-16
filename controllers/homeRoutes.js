@@ -25,8 +25,8 @@ var isAuthenticated = require("../config/middleware/authenticated");
 
 
   // loads favourites
-  router.get("/favourites", isAuthenticated, function(req, res) {
-    res.render('favourites', {js: ['favroutes.js']});
+  router.get("/favorites", isAuthenticated, function(req, res) {
+    res.render('favorites', {js: ['favorites.js']});
   });
 
 
