@@ -25,7 +25,7 @@ $("#genre-list button").on("click", function(event) {
             <div class="card-body">
               <h5 class="card-title">${book.volumeInfo.title}</h5>
               
-              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
+              <button class="btn btn-primary add-to-favorites" data-book-id="${book.id}">Add to favorites</button>
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to cart</button>
             </div>
           </div>
@@ -69,7 +69,7 @@ $("#genre-list button").on("click", function(event) {
             <div class="card-body">
               <h5 class="card-title">${book.volumeInfo.title}</h5>
               
-              <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to favorites</button>
+              <button class="btn btn-primary add-to-favorites" data-book-id="${book.id}"> Add to favorites </button>
               <button class="btn btn-primary" data-title="${book.volumeInfo.title}">Add to cart</button>
             </div>
           </div>
@@ -97,13 +97,14 @@ $("#results-list").on("click", ".add-to-favorites", function(event) {
 });
 
 const addToFav = async (bookId, bookTitle) => {
-  const response = await fetch(`/api/favRoutes`, {
+  const response = await fetch(`/api/favorites`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ book_id: bookId }),
+    body: JSON.stringify({ book_id: bookId, book_title: bookTitle }),
   });
 
   if (response.ok) {
+    document.location.replace('/favorites')
     console.log(`${bookTitle} has been added to favorites.`);
 alert(`${bookTitle} has been added to favorites.`);
   }
