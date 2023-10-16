@@ -5,7 +5,7 @@
   
 
 ## Description
-📙 Online book store app, Where user can search for new books by genres. By signing in they can add books to favorites or to cart.
+📙 Online book store app, where user can search for new books by genres. By signing in they can add books to favorites or to cart.
 
 ## User story
 
@@ -45,10 +45,10 @@ Then I'm presented with the books that were added to cart.
 - [Contributing](#contributing)
 
 ## Installation
-⚙️ User need to install all dependencies by running npm i and run the application with node server.js
+⚙️ User need to install all dependencies by running npm i and run the application with node server.js if they want to use insomia. Otherwise, just click the heruko link.
 
 ## Usage
-💻 To help a user create a proffesional readme file in more efficient and faster way
+💻To start and save your progress, users should log in first. Afterwards, when directed to the homepage, search a book or click a genre. When the resulting books appear, you can click the buttons to save book to favorites or add to cart.
 
 ## License
 
@@ -64,4 +64,4 @@ This application is covered by the MIT license.
 👪 Anand Patel
 
 ## Tests
-📝 No
+📝 Do get and post request through Insomia app, also need mysql downloaded.
