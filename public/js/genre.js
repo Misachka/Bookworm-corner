@@ -57,8 +57,8 @@ $("#genre-list button").on("click", function(event) {
   });
 
   //search-bar
-  $(".search-bar").on("keyup", function(){
-    let input = document.querySelector(".search-bar");
+  $(".search-bar").on("keyup", function(e){
+    let input = e.target.value;
     //input = input.toLowerCase();
     //console.log("getting books for " + genre);
 
