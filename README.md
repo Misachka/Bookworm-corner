@@ -9,6 +9,8 @@
 An online space where users can search for books by clicking on the genre or by typing a key worg on the search bar.
 Users can sign up and login in order to save books to favorites or add them to the cart.
 
+[Deployed App](https://bookworm-corner-8f20cb894ad7.herokuapp.com/)
+
 ## User story
 
 As an user I want a web application where I can search and buy books.
