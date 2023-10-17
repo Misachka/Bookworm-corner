@@ -11,6 +11,13 @@ Users can sign up and login in order to save books to favorites or add them to t
 
 [Deployed App](https://bookworm-corner-8f20cb894ad7.herokuapp.com/)
 
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contributing](#contributing)
+
 ## User story
 
 As an user I want a web application where I can search and buy books.
@@ -41,12 +48,6 @@ When I click Cart,
 
 Then I'm presented with the books that were added to cart. 
 
-## Table of Contents
-- [Description](#description)
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [Contributing](#contributing)
 
 ## Installation
 ⚙️ User need to install all dependencies by running npm i and run the application with node server.js if they want to use insomia. Otherwise, just click the heruko link.
