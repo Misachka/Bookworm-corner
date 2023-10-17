@@ -7,6 +7,8 @@
 ## Description
 📙 Online book store app, where user can search for new books by genres. By signing in they can add books to favorites or to cart.
 
+[Deployed App](https://bookworm-corner-8f20cb894ad7.herokuapp.com/)
+
 ## User story
 
 As an user I want a web application where I can search and buy books.
