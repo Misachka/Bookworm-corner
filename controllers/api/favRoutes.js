@@ -1,24 +1,24 @@
 const router = require('express').Router();
-const { Favorites} = require('../../models');
+const { Favorites, User, Book} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/favorites', withAuth, async (req, res) => {
-    try {
-      const user = await User.findByPk(req.session.user_id, {
-        include: [{ model: Favorites, include: [Book] }],
-      });
+// router.get("/", withAuth, async (req, res) => {
+//     try {
+//       const user = await User.findByPk(req.session.user_id, {
+//         include: [{ model: Favorites, include: [Book] }],
+//       });
   
-      res.render('favorites', { user });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  });
+//       res.render('favorites', { user });
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+//   });
 
-router.post('/favorites', withAuth, async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     
     const book = await Book.findOrCreate({
-      where : { google_id: '' },
+      where : { google_id: " " },
       defaults:{
         google_id : " ",
         title : " ",

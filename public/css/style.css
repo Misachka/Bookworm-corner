@@ -8,7 +8,7 @@ body, h1,  h3, p, ul {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     color: #333;
-    background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg"); 
+    /* background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg");  */
     background-size: cover; 
     background-repeat: no-repeat;
   }
@@ -97,7 +97,7 @@ body, h1,  h3, p, ul {
 
  
 .body {
-  background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg"); 
+  /* background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg");  */
   background-size: cover; 
   background-repeat: no-repeat; 
 }
@@ -134,7 +134,7 @@ body, h1,  h3, p, ul {
 .bookImg {
   width: 260px;
   height: 140px;
-  float:right;
+  /* float:right; */
  
   
 }
@@ -203,13 +203,13 @@ body, h1,  h3, p, ul {
 
 .card {
  /* Adjust the width as needed */
-  margin: 10px;
+
+  margin: 5px;
   padding: 15px;
   background-color: #dde2eb; /* Card background color */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -224,7 +224,7 @@ body, h1,  h3, p, ul {
 }
 .card img {
   height: 400px; 
-  width: 400px; 
+  width: auto; 
   object-fit: cover;
   border-radius: 5px; 
 }
@@ -236,6 +236,7 @@ body, h1,  h3, p, ul {
 
 .card-body {
   display: flex;
+  
   flex-direction: column;
   align-items: center;
   flex-grow: 1; 

@@ -32,9 +32,27 @@
         </div>
 
     </section>
-<div id="results-list" class="container d-flex flex-wrap align-items-center" >
+
+    
+<div id="results-list"  >
     <div id="book-results"></div>
 </div>
+
+
+
+{{!-- <section>
+    {{#each books as |book|}}
+    <div id ="results-list" class="card" style="width: 18rem;">
+  <img src="{{book.volumeInfo.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{book.volumeInfo.title}}</h5>
+    <p class="card-text">{{book.volumeInfo.authors}}</p>
+    <a href="#" class="btn btn-primary">Add to cart</a>
+  </div>
+</div>
+{{/each}}
+</section> --}}
+
 </main>
 
-<script src="/js/genre.js"></script>
+<script type="module" src="/js/genre.js"></script>
