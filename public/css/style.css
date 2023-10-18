@@ -6,11 +6,15 @@ body, h1,  h3, p, ul {
   
   body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: burlywood;
     color: #333;
-    background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg"); 
+    /* background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg");  */
     background-size: cover; 
     background-repeat: no-repeat;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    background-image:url("../../resources/peakpx.jpg");
+    
   }
   
   header {
@@ -23,14 +27,28 @@ body, h1,  h3, p, ul {
 
   h1{
     color:white;
+    font-family: 'Lobster', sans-serif;
+    font-size: 65px;
+
   }
 
-  .search-section {
+
+  /* .search-section {
 
     color: antiquewhite;
     margin-bottom: 25px;
+  } */
+  .form-control:focus {
+    box-shadow: none;
   }
-
+  
+  .form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+  }
+ 
   header nav ul {
     list-style-type: none;
     margin: 0;
@@ -43,8 +61,10 @@ body, h1,  h3, p, ul {
   }
   
   header nav ul li a {
-    color: white;
+    color:darkblue;
     text-decoration: none;
+    font-size: 24px;
+    
   }
   
   main {
@@ -97,9 +117,9 @@ body, h1,  h3, p, ul {
 
  
 .body {
-  background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg"); 
-  background-size: cover; 
-  background-repeat: no-repeat; 
+  /* background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg");  */
+  /* background-size: cover; 
+  background-repeat: no-repeat;  */
 }
 
 .form-group{
@@ -138,25 +158,23 @@ body, h1,  h3, p, ul {
  
   
 }
+.active-cyan-2 input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #4dd0e1;
+  box-shadow: 0 1px 0 0 #4dd0e1;
+ 
+}
 
-/* .about {
-  border-style: groove;
+#search-box{
+  margin-bottom: 2%;
+  margin-top: 1%;
+  
+
+
+}
+#genre{
+  font-size: large;
   border-radius: 5px;
-  border-width: 10px;
-  border-color: rgb(10, 111, 139);
-  margin: 25px;
-  color: rgb(10, 111, 139);
- background-color: rgb(65, 22, 13, 0.979);
- padding: 15px;
-
-} */
-
-
-#results-list {
-  /* display: flex; */
-  /* display:flex;
-  flex-wrap: wrap; */
-
+  
 }
 
 
@@ -203,13 +221,13 @@ body, h1,  h3, p, ul {
 
 .card {
  /* Adjust the width as needed */
-  margin: 10px;
+
+  margin: 5px;
   padding: 15px;
   background-color: #dde2eb; /* Card background color */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
-  flex-direction: column;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -224,7 +242,7 @@ body, h1,  h3, p, ul {
 }
 .card img {
   height: 400px; 
-  width: 400px; 
+  width: auto; 
   object-fit: cover;
   border-radius: 5px; 
 }
@@ -236,6 +254,7 @@ body, h1,  h3, p, ul {
 
 .card-body {
   display: flex;
+  
   flex-direction: column;
   align-items: center;
   flex-grow: 1; 

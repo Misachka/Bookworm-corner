@@ -1,18 +1,38 @@
 <main>
-    <section class="search-section">
-        <h2>Welcome to our Bookstore</h2>
+     <h2>Welcome to our Bookstore</h2>
         <p>Find your favorite books and explore a wide range of genres in BookWorm Store.</p>
-        <div class="search-bar">
-            <input type="text" placeholder="Search books...">
-            {{!-- <button id="search-btn">Search</button> --}}
-        </div>
+    
+       
+    <form class="form-inline active-cyan-3 active-cyan-4" id="search-box">
+  <i class="fas fa-search" aria-hidden="true"></i>
+  <input class="form-control form-control-lg ml-3 w-75" type="text" placeholder="Search books"
+    aria-label="Search">
+</form>
+
+
+ <section class = "featured-books" id="genre-list">
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" id="genre" class="btn btn-primary">Action</button>
+  <button type="button" id="genre" class="btn btn-primary">Adventure</button>
+  <button type="button" id="genre" class="btn btn-primary">Comedy</button>
+  <button type="button" id="genre" class="btn btn-primary">Drama</button>
+  <button type="button" id="genre" class="btn btn-primary">Fantasy</button>
+  <button type="button" id="genre" class="btn btn-primary">Fiction</button>
+  <button type="button" id="genre" class="btn btn-primary">History</button>
+  <button type="button" id="genre" class="btn btn-primary">Mystery</button>
+  <button type="button" id="genre" class="btn btn-primary">Romance</button>
+  <button type="button" id="genre" class="btn btn-primary">Thriller</button>
+  <button type="button" id="genre" class="btn btn-primary">Sci-fi</button>
+  <button type="button" id="genre" class="btn btn-primary">Science</button>
+  <button type="button" id="genre" class="btn btn-primary">Western</button>
+  <button type="button" id="genre" class="btn btn-primary">Other</button>
+  
+
+</div>
     </section>
 
 
-
-
-
-    <section class="featured-books">
+    {{!-- <section class="featured-books">
         <h2>By Genre</h2>
         <div id="genre-list">
             <button>Action</button>
@@ -31,10 +51,17 @@
             
         </div>
 
-    </section>
-<div id="results-list" class="container d-flex flex-wrap align-items-center" >
+    </section> --}}
+    <div class="float-right">
+        <div id="results-list"></div>
+    </div><br>
+
+    
+{{!-- <div id="results-list"  >
     <div id="book-results"></div>
-</div>
+</div> --}}
+
+
 </main>
 
-<script src="/js/genre.js"></script>
+<script type="module" src="/js/genre.js"></script>

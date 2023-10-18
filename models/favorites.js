@@ -13,24 +13,24 @@ Favorites.init(
                 primaryKey: true,
                 autoIncrement: true,
             },
-            title: {
-                type: DataTypes.STRING
-            },
-            author: {
-                type: DataTypes.STRING
-            },
-            genre: {
-                type: DataTypes.STRING
-            },
-            description: {
-                type: DataTypes.STRING
-            },
-            isbn: {
-                type: DataTypes.STRING
-            },
-            thumbnail: {
-                type: DataTypes.STRING
-            },
+            // title: {
+            //     type: DataTypes.STRING
+            // },
+            // author: {
+            //     type: DataTypes.STRING
+            // },
+            // genre: {
+            //     type: DataTypes.STRING
+            // },
+            // description: {
+            //     type: DataTypes.STRING
+            // },
+            // isbn: {
+            //     type: DataTypes.STRING
+            // },
+            // thumbnail: {
+            //     type: DataTypes.STRING
+            // },
             book_id: {
                 type: DataTypes.INTEGER,
                 references: {
