@@ -1,32 +1,37 @@
 /* Reset  margin and padding */
-body, h1,  h3, p, ul {
+/* body, h1,  h3, p, ul {
     margin: 0;
     padding: 0;
-  }
+  } */
   
   body {
     font-family: Arial, sans-serif;
-    background-color: burlywood;
+    /* background-color: burlywood; */
     color: #333;
-    /* background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg");  */
+    background-image: url('https://images4.alphacoders.com/132/1326368.png'); 
     background-size: cover; 
     background-repeat: no-repeat;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
-    background-image:url();
+    /* background-image:url(); */
     
   }
   
   header {
-    background-color: #1E90FF; 
+    /* background-color: #1E90FF; 
     color: white;
     padding: 20px;
+    text-align: center; */
+    background-color: rgb(10, 111, 139);
+    color: rgba(65, 22, 13, 0.979);
     text-align: center;
+    border-style:double;
+    border-width: 10px;
   }
   
 
   h1{
-    color:white;
+    color: rgba(65, 22, 13, 0.979);
     font-family: 'Lobster', sans-serif;
     font-size: 65px;
 
@@ -61,9 +66,9 @@ body, h1,  h3, p, ul {
   }
   
   header nav ul li a {
-    color:darkblue;
+    color:darkgray;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 20px;
     
   }
   
@@ -112,7 +117,7 @@ body, h1,  h3, p, ul {
 
  
 .body {
-  /* background-image: url("https://wallpapertag.com/wallpaper/full/b/9/5/126747-top-library-background-1920x1202.jpg");  */
+  /* background-image: url(resources\library.jpg);  */
   /* background-size: cover; 
   background-repeat: no-repeat;  */
 }
@@ -165,10 +170,13 @@ body, h1,  h3, p, ul {
   justify-content: center;
   
 
-
+}
+#bar{
+  background-color: rgb(248, 229, 215);
+  
 }
 #genre{
-  font-size: large;
+  font-size:x-large;
   /* border-radius: 5px; */
   
 }
@@ -273,10 +281,12 @@ animate it */
   width: 250px;
   padding: 10px;
   margin: 25px auto 25px auto;
+ 
 }
 
 #list-th:target .cover {
   width: 246px;
+  
 }
 
 #list-th:target img {
@@ -307,49 +317,26 @@ animate it */
  /* Adjust the width as needed */
 
   margin: 5px;
-  /* padding: 15px; */
-  background-color: beige; 
+  background-color: lightgrey; 
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-
-
 }
-
 
 .card:hover {
   transform: translateY(-15px); /* Move the card up slightly on hover */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Change box shadow on hover */
 }
- /* .card img {
-  height: 400px; 
-  width: auto; 
-  object-fit: cover;
-  border-radius: 5px; 
-} */
 
-/* .card-title {
-  font-size: 1.25rem;
-  margin-top: 10px; 
-} */
-
-/* .card-body {
-  display: flex;
-  
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1; 
-} */
-
-.btn-primary {
-  width: 100%;
-  margin-top: auto; 
+h2{
+  color:white;
+  font-size: 50px;
+  font-weight: bold;
 }
-
-.btn-primary:hover {
-  background-color: #0069d9;
-  border-color: #0062cc;
-  color: #fff; 
-} 
+#texthome{
+  color:white;
+  font-size: 24px;
+  
+}
+ 
 
 
