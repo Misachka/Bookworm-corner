@@ -1,6 +1,30 @@
-// require('dotenv').config();
-// key=process.env.GOOGLE_KEY
+// import dotenv from 'dotenv'
+// dotenv.config()
 // const apiKey = process.env.GOOGLE_KEY
+// console.log(apiKey);
+// const envVariables = process.env;
+// const {
+//   GOOGLE_KEY,
+// } = envVariables;
+
+// window.envVariables = envVariables;
+// const _getRowString = (description, envVar) => { 
+//   return `<p>${description}: <strong>${envVar}</strong></p>`;
+// }
+// window.envVariables = envVariables;
+// console.log(process.env);
+// console.log(process.env.GOOGLE_KEY);
+
+// if(process.env.GOOGLE_KEY === 'production'){
+//   console.log('App running in production mode');
+// }
+// import webpack from ('webpack');
+// import webpack from 'webpack';
+// import webpackConfig from '../../webpack.config'; 
+
+// const bundler = webpack(webpackConfig);
+
+// bundler.run(...);
 
 
 $("#genre-list button").on("click", function (event) {
@@ -16,13 +40,6 @@ $("#genre-list button").on("click", function (event) {
       const books = data.items;
       console.log(books);
 
-      // const newDiv = $("<div>");
-      // $("#results-list").append(newDiv);
-      // response.render("home", {books});
-      // const title = books.volumeInfo.title;
-      // const author = books.volumeInfo.authors;
-      // const bookImg = books.volumeInfo.imageLinks.smallThumbnail;
-      // const booksContainer = document.querySelector('#results-list');
 
       $('#results-list').empty();
 
@@ -30,33 +47,28 @@ $("#genre-list button").on("click", function (event) {
 
         const newDiv = $("<div>");
         newDiv.addClass("card");
-        //newDiv.css("width", "30rem");
-
-        // newDiv.html(`
-        //   <div class="m-2 card">
-        //     <img class="card-img-top" src="${book.volumeInfo.imageLinks.smallThumbnail}" alt="Book Cover">
-        //     <div class="card-body">
-        //       <h5 class="card-title">${book.volumeInfo.title}</h5>
-        //       <button class="btn btn-primary add-to-cart" data-book-id="${book.id}" data-book-title="${book.volumeInfo.title}">Add to Cart</button>
-        //       <button class="btn btn-primary add-to-favorites" data-title="${book.volumeInfo.title}" data-thumbnail="${book.volumeInfo.imageLinks.smallThumbnail}" data-author="${book.volumeInfo.authors}" data-book-id="${book.id}">Add to favorites</button>
-
-        //     </div>
-        //   </div>
-        // `);
 
         newDiv.html(`
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-  <div class="col">
-    <div class="card">
-      <img src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'https://via.placeholder.com/128x192'}" class="card-img-top" alt="Book Cover">
-      <div class="card-body">
-        <h5 class="card-title">${book.volumeInfo.title}</h5>
-        <p class="card-author" ${book.volumeInfo.authors}</p>
-        <button class="btn btn-primary add-to-cart" data-book-id="${book.id}" data-book-title="${book.volumeInfo.title}">Add to Cart</button>
-        <button class="btn btn-primary add-to-favorites" data-title="${book.volumeInfo.title}" data-thumbnail="${book.volumeInfo.imageLinks.thumbnail}" data-author="${book.volumeInfo.authors}" data-book-id="${book.id}">Add to favorites</button>
+      <div class="book read">
+        <div class="cover">
+          <img src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'https://via.placeholder.com/128x192'}" alt="Book Cover">
+        </div>
+        <div class="description">
+          <p class="title">${book.volumeInfo.title}<br>
+            <span class="author">${book.volumeInfo.authors}</span></p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill add-to-favorites" viewBox="0 0 16 16" data-title="${book.volumeInfo.title}" data-thumbnail="${book.volumeInfo.imageLinks.thumbnail}" data-author="${book.volumeInfo.authors}" data-book-id="${book.id}">
+  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill add-to-cart" viewBox="0 0 16 16" data-book-id="${book.id}" data-book-title="${book.volumeInfo.title}">
+  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg>
+       
+      </div>
+      </div>
       </div>
     </div>
-  </div
+   
 
 
         `)
@@ -72,7 +84,8 @@ $("#genre-list button").on("click", function (event) {
 });
 
 //search-bar
-$(".search-bar").on("keyup", function (e) {
+
+$("#search-box").on("keyup", function (e) {
   let input = e.target.value;
   //input = input.toLowerCase();
   //console.log("getting books for " + genre);
@@ -91,16 +104,25 @@ $(".search-bar").on("keyup", function (e) {
         newDiv.addClass("card");
         //newDiv.css("width", "30rem");
         newDiv.html(`
-        <div class="m-2 card">
-        <img class="card-img-top" src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'https://via.placeholder.com/128x192'}" alt="Book Cover">
-        <div class="card-body">
-          <h5 class="card-title">${book.volumeInfo.title}</h5>
-          <p class="card-author" ${book.volumeInfo.authors}
-
-          <button class="btn btn-primary add-to-cart" data-title="${book.volumeInfo.title}" data-thumbnail="${book.volumeInfo.imageLinks.smallThumbnail}" data-author="${book.volumeInfo.authors}" data-book-id="${book.id}">Add to cart</button>
-
+        <div class="book read">
+        <div class="cover">
+          <img src="${book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : 'https://via.placeholder.com/128x192'}" alt="Book Cover">
         </div>
+        <div class="description">
+          <p class="title">${book.volumeInfo.title}<br>
+            <span class="author">${book.volumeInfo.authors}</span></p>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill add-to-favorites" viewBox="0 0 16 16" data-title="${book.volumeInfo.title}" data-thumbnail="${book.volumeInfo.imageLinks.thumbnail}" data-author="${book.volumeInfo.authors}" data-book-id="${book.id}">
+  <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill add-to-cart" viewBox="0 0 16 16" data-book-id="${book.id}" data-book-title="${book.volumeInfo.title}">
+  <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg>
+       
       </div>
+      </div>
+      </div>
+    </div>
         `);
 
         $("#results-list").append(newDiv);
